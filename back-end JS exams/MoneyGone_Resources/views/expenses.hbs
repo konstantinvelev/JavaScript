@@ -1,0 +1,61 @@
+
+<section class="actions">
+    <form action="edit" method="POST">
+        <h2>Salary time? Refill your account amount.</h2>
+        <input name="newNumber" type="text" id="refill-amount">
+        <button type="submit">Refill</button>
+    </form>
+    <div>
+        <h2>New expense comming up?</h2>
+        <a href="/create">Add it now</a>
+    </div>
+</section>
+
+<hr class="separator">
+
+<table class="expenses">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Merchant</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        {{#each expenses}}
+        <tr>
+            <td>
+                <img src="static/images/date.png" />
+                <p>{{date}}</p>
+            </td>
+            <td>
+                <p>{{merchant}}</p>
+                {{#if report}}
+                <div class="report">
+                    <a href="/details/{{id}}">Report</a>
+                </div>
+                {{/if}}
+            </td>
+            <td>
+                <img src="static/images/amount.png" alt="">
+                <p>{{amount}}</p>
+            </td>
+            <td>
+                <img src="static/images/category.png" alt="">
+                <p>{{category}}</p>
+            </td>
+            <td>
+                <img src="static/images/hastag.png" alt="">
+                <p>{{description}}</p>
+            </td>
+        </tr>
+        {{else}}
+
+<h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
+        {{/each}}
+    </tbody>
+</table>
+

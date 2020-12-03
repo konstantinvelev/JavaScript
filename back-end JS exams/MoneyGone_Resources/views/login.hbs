@@ -1,0 +1,17 @@
+{{#if errorMessage}}
+<section class="notifications">
+    <p class="notification-message">{{errorMessage}}</p>
+</section>
+{{/if}}
+<form action="/login" method="POST">
+    <h1>Login</h1>
+
+    <p>Personal info</p>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="JustMyself123...">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="********">
+
+    <button type="submit">Login</button>
+</form>

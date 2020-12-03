@@ -1,0 +1,4 @@
+.input-error{
+    border-left-color: red;
+    border-left: 0.3em solid red;
+}

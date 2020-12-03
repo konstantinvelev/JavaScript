@@ -1,0 +1,46 @@
+<div *ngIf="!isInEditMode">
+    <div class="profile"><img src="./assets/profile.png" alt="default user" *ngIf="!isInEditMode">
+        <h3>User Info:</h3>
+        <div class="flex">
+            <p>Username: </p>
+            <p>{{currentUser.username}}</p>
+        </div>
+        <div class="flex">
+            <p>Email: </p>
+            <p>{{currentUser.email}}</p>
+        </div>
+        <div class="flex">
+            <p>Phone: </p>
+            <p>+359 {{currentUser.tel}}</p>
+        </div>
+        <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+    </div>
+</div>
+
+<div *ngIf="isInEditMode">
+    <div class="profile" *ngIf="isInEditMode">
+        <img src="./assets/profile.png" alt="default user">
+        <h3>User Info:</h3>
+        <form #f="ngForm" (ngSubmit)="submitFormHandler(f.value)">
+            <div class="flex">
+                <p>Username: </p>
+                <input type="text" name="username" id="username" [ngModel]="currentUser.username">
+            </div>
+            <div class="flex">
+                <p>Email: </p>
+                <input type="email" name="email" id="email" [ngModel]="currentUser.email">
+            </div>
+            <div class="flex">
+                <p>Phone: </p>
+                <div>
+                    <select name="select-tel" id="select-tel" class="tel">
+                        <option value="00359">+359</option>
+                    </select>
+                    <input type="text" name="tel" id="tel" [ngModel]="currentUser.tel">
+                </div>
+            </div>
+            <button type="button" class="red-button" (click)="toggleEditMode()">Cancel</button>
+            <button class="green-button">Save</button>
+        </form>
+    </div>
+</div>
